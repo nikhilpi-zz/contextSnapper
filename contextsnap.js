@@ -1,5 +1,6 @@
 (function(window, document, version, callback) { // http://stackoverflow.com/questions/2170439/how-to-embed-javascript-widget-that-depends-on-jquery-into-an-unknown-environmen
     var loaded_j = false; 
+    var loaded_w = false; 
     
     // document.head not standard before HTML5
     var insertionPoint = document.head || document.getElementsByTagName('head').item(0) || document.documentElement.childNodes[0];
@@ -35,39 +36,58 @@
             insertionPoint.appendChild(script);
         } 
     }
+
+    function load_wikipedia(j, cb) {
+        var js, d;
+        if(!(js = window.Wiki) || !js.Dialog || cb(js)) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "http://okfnlabs.org/wikipediajs/wikipedia.js";
+            script.onload = script.onreadystatechange = function() {
+                if(!loaded_s && (!(d = this.readyState) || d == "loaded" || d == "complete")) {
+                    cb(window.Wiki, loaded_w = true);
+                    j(script).remove();
+                }
+            };
+            insertionPoint.appendChild(script);        
+        }    
+    }
     
     load_jquery(version, function(j) {
-               callback(j);   
+      load_wikipedia(j, function(w) {
+        callback(j,w);   
+      });  
     });
      
-})(window, document, "0.1", function($) {    
+})(window, document, "0.1", function($,$WIKIPEDIA) {    
     $(document).ready(function () {
         var CONTEXT_CONFIG = {
 
         }
         $.extend(CONTEXT_CONFIG, window.CONTEXT_CONFIG)
         // global vars
-        window.soundcite = {};
+        window.context = {};
 
         // check for mobile        
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            soundcite.mobile = true;
+            context.mobile = true;
         } else {
-            soundcite.mobile = false;
+            context.mobile = false;
         }
-    
     
 
-        var soundcite_array = $('.soundcite');
+    
+
+        // var soundcite_array = $('.soundcite');
         
-        for(var i = 0; i < soundcite_array.length; i++) {
-            var el = soundcite_array[i];          
-            if(el.hasAttribute('data-url')) {
-                new PopcornClip(el);
-            } else { //if(!soundcite.mobile) {
-                new SoundCloudClip(el);
-            } 
-        }
+        // for(var i = 0; i < soundcite_array.length; i++) {
+        //     var el = soundcite_array[i];          
+        //     if(el.hasAttribute('data-url')) {
+        //         new PopcornClip(el);
+        //     } else { //if(!soundcite.mobile) {
+        //         new SoundCloudClip(el);
+        //     } 
+        // }
         
     });  
 });

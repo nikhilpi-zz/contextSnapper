@@ -6,9 +6,36 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="handlebars-v2.0.0.js"></script>
+    <link rel="stylesheet" href="context.css" type="text/css" />
+    <script type="text/javascript">
+      $(document).ready( function() {
+        
+        $('body').prepend('<div class="context-sidebar"></div>')
+        
+        var source   = $("#testdiv").html();
+        var template = Handlebars.compile(source);
+        var context = {title: "My New Post"};
+        var html  = template(context);
+        
+        $('span.context').click(function(){
+          $('.context-sidebar').toggleClass('context-show')
+          $('.context-sidebar').append(html)
+        });
+
+      });
+    </script>
+
+    <script id="testdiv" type="text/x-handlebars-template">
+     <div id="context-body">
+      {{title}}
+     </div>
+    </script>
   </head>
 
   <body>
@@ -18,7 +45,7 @@
           <h1>Testing page</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci lacus, placerat id blandit quis, lobortis eu lectus. Vestibulum ut erat tincidunt, blandit augue varius, euismod nibh. Proin nulla massa, placerat et lorem quis, semper iaculis felis. Proin sit amet pretium nisi, non pretium turpis. Phasellus viverra a nunc a feugiat. Cras eu ullamcorper massa. Aliquam dictum nulla velit, et molestie sapien auctor eget. Suspendisse vestibulum magna ut dui bibendum, nec dictum tellus convallis. Maecenas eleifend nunc scelerisque mi semper venenatis. Nullam euismod dapibus augue, nec accumsan sem. Mauris eu commodo quam. Duis ut felis dictum, egestas enim eu, vestibulum enim. Aliquam erat volutpat.
 
-Nunc iaculis elit id nisl sodales, ac sollicitudin erat aliquet. Sed eget leo vel felis molestie lobortis nec id nisi. Nunc a aliquet tortor. Duis mattis posuere enim, et posuere magna semper eget. Curabitur ullamcorper ex sed lobortis consequat. Aenean quis odio ultricies, scelerisque nulla quis, feugiat sapien. Duis tincidunt, urna sit amet aliquet tincidunt, eros elit rhoncus urna, non faucibus justo felis a nunc. Duis sollicitudin mi sit amet malesuada mattis. Aliquam convallis dui tellus, in mollis purus imperdiet sed. Nulla vitae mollis nibh. Quisque a finibus lectus, vitae facilisis nibh. Aliquam semper vestibulum ligula vel imperdiet. Donec placerat, dui quis sodales porta, urna ante sagittis metus, posuere tempor mauris sem id diam. Aenean urna enim, lobortis rhoncus viverra vitae, egestas vitae nisi. Quisque id tortor molestie, vestibulum erat et, porta lectus. Pellentesque accumsan nisi quis lorem hendrerit porttitor.
+Nunc iaculis elit id nisl sodales, ac sollicitudin erat aliquet. Sed eget leo vel felis molestie lobortis nec id nisi. Nunc a aliquet tortor. Duis mattis posuere enim, et posuere magna semper eget. Curabitur ullamcorper ex sed lobortis consequat. <span class="context">Aenean</span> quis odio ultricies, scelerisque nulla quis, feugiat sapien. Duis tincidunt, urna sit amet aliquet tincidunt, eros elit rhoncus urna, non faucibus justo felis a nunc. Duis sollicitudin mi sit amet malesuada mattis. Aliquam convallis dui tellus, in mollis purus imperdiet sed. Nulla vitae mollis nibh. Quisque a finibus lectus, vitae facilisis nibh. Aliquam semper vestibulum ligula vel imperdiet. Donec placerat, dui quis sodales porta, urna ante sagittis metus, posuere tempor mauris sem id diam. Aenean urna enim, lobortis rhoncus viverra vitae, egestas vitae nisi. Quisque id tortor molestie, vestibulum erat et, porta lectus. Pellentesque accumsan nisi quis lorem hendrerit porttitor.
 
 Quisque interdum vitae ex id malesuada. Ut et justo sagittis, vestibulum enim et, venenatis risus. Etiam lacus erat, imperdiet eget condimentum placerat, viverra et enim. Proin aliquet pretium bibendum. Pellentesque cursus aliquam dignissim. Sed a lorem imperdiet, placerat orci id, sodales libero. Sed urna arcu, sagittis luctus placerat facilisis, dignissim sed ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ornare ullamcorper efficitur. Vestibulum vel vehicula nisi.</p>
         </div>

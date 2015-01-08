@@ -1,0 +1,26 @@
+.context{
+  background-color: #aaaaaa;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.context-sidebar{
+  -webkit-transition: right 2s; /* For Safari 3.1 to 6.0 */
+  transition: right 2s;
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  right: -290px;
+  background-color: #aaaaaa;
+}
+
+.context-show{
+  -webkit-transition: right 2s; /* For Safari 3.1 to 6.0 */
+  transition: right 2s;
+  right: 0;
+}
+
+#context-body{
+  padding: 10px;
+}
