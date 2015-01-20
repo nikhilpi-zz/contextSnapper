@@ -13,23 +13,7 @@
 
     <script src="handlebars-v2.0.0.js"></script>
     <link rel="stylesheet" href="context.css" type="text/css" />
-    <script type="text/javascript">
-      $(document).ready( function() {
-        
-        $('body').prepend('<div class="context-sidebar"></div>')
-        
-        var source   = $("#testdiv").html();
-        var template = Handlebars.compile(source);
-        var context = {title: "My New Post"};
-        var html  = template(context);
-        
-        $('span.context').click(function(){
-          $('.context-sidebar').toggleClass('context-show')
-          $('.context-sidebar').append(html)
-        });
-
-      });
-    </script>
+    <script src="./contextsnap.js"></script>
 
     <script id="testdiv" type="text/x-handlebars-template">
      <div id="context-body">
