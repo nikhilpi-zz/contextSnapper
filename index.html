@@ -15,10 +15,20 @@
     <link rel="stylesheet" href="context.css" type="text/css" />
     <script src="./contextsnap.js"></script>
 
-    <script id="testdiv" type="text/x-handlebars-template">
-     <div id="context-body">
-      {{title}}
-     </div>
+    <script id="templates" type="text/x-handlebars-template">
+      <div class="context-container">
+        {{#wikipedia}}
+          <h1>{{title}}</h1>
+          <div class="context-img">
+            <img src="{{img}}" class="img-thumbnail">
+          </div>
+          <p>{{summary}}</p>
+        {{/wikipedia}}
+        {{#twitter}}
+          <h3>{{tweet}}</h3>
+          <h4>{{user}}</h4>
+        {{/twitter}}
+      </div>
     </script>
   </head>
 
@@ -26,12 +36,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h1>Testing page</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci lacus, placerat id blandit quis, lobortis eu lectus. Vestibulum ut erat tincidunt, blandit augue varius, euismod nibh. Proin nulla massa, placerat et lorem quis, semper iaculis felis. Proin sit amet pretium nisi, non pretium turpis. Phasellus viverra a nunc a feugiat. Cras eu ullamcorper massa. Aliquam dictum nulla velit, et molestie sapien auctor eget. Suspendisse vestibulum magna ut dui bibendum, nec dictum tellus convallis. Maecenas eleifend nunc scelerisque mi semper venenatis. Nullam euismod dapibus augue, nec accumsan sem. Mauris eu commodo quam. Duis ut felis dictum, egestas enim eu, vestibulum enim. Aliquam erat volutpat.
-
-Nunc iaculis elit id nisl sodales, ac sollicitudin erat aliquet. Sed eget leo vel felis molestie lobortis nec id nisi. Nunc a aliquet tortor. Duis mattis posuere enim, et posuere magna semper eget. Curabitur ullamcorper ex sed lobortis consequat. <span class="context">Aenean</span> quis odio ultricies, scelerisque nulla quis, feugiat sapien. Duis tincidunt, urna sit amet aliquet tincidunt, eros elit rhoncus urna, non faucibus justo felis a nunc. Duis sollicitudin mi sit amet malesuada mattis. Aliquam convallis dui tellus, in mollis purus imperdiet sed. Nulla vitae mollis nibh. Quisque a finibus lectus, vitae facilisis nibh. Aliquam semper vestibulum ligula vel imperdiet. Donec placerat, dui quis sodales porta, urna ante sagittis metus, posuere tempor mauris sem id diam. Aenean urna enim, lobortis rhoncus viverra vitae, egestas vitae nisi. Quisque id tortor molestie, vestibulum erat et, porta lectus. Pellentesque accumsan nisi quis lorem hendrerit porttitor.
-
-Quisque interdum vitae ex id malesuada. Ut et justo sagittis, vestibulum enim et, venenatis risus. Etiam lacus erat, imperdiet eget condimentum placerat, viverra et enim. Proin aliquet pretium bibendum. Pellentesque cursus aliquam dignissim. Sed a lorem imperdiet, placerat orci id, sodales libero. Sed urna arcu, sagittis luctus placerat facilisis, dignissim sed ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ornare ullamcorper efficitur. Vestibulum vel vehicula nisi.</p>
+          <h1>Making Sense of Ferguson</h1>
+          <p>After waking up on the morning of August 9th, 2014, 28-year-old police officer <span class="context">Darren Wilson</span> pulled on a pair of navy blue pants and buttoned up his matching French blue uniform shirt. A Ferguson Police Department badge was stitched on both shoulders, and his name rested just above the right breast pocket. He also wore his standard duty belt: magazine pouches, mace on the left, a baton, two sets of handcuffs, his radio, and a firearm on the right, a Sig Sauer P229 .40 Caliber.</p>
+          <p>It was early-his shift started that day at 6:30 am, but Wilson didn't mind. He'd had his share of ups and downs, but being a police officer for the past five years was the job of his life, he'd later say. On February 11th, 2014, his father, John Wilson, posted a picture&nbsp;of his son on Facebook&nbsp;receiving an award for subduing a suspected drug dealer until assistance arrived. A large amount of marijuana was recovered from the car. "Very proud of my son, Darren Wilson, on his receiving a Commendation from his Police Department. Congratulations Son," his father typed with pride. Later, the photo would be scavenged by a fleet of internet trolls and sent to "<em>Yahoo!News</em>," where it would then be posted and used to alert the country of whom Wilson was, and what he looked like.</p>
+          <p>Later that morning, Wilson went to the pharmacy to pick up some heartburn medication for his fiancee, 37-year-old Barbara Spradling, also a Ferguson police officer. In 2012, Spradling was awarded a Medal of Valor for helping detain and negotiate a peaceful surrender with a car robbery suspect, who had fired gunshots at her and another officer. Wilson and Spradling lived together in a one-story brick house in Crestwood, Missouri, with a pool and a basketball hoop. Potted plants and a garden hose sat out front.</p>
+          <p>It was hot on the morning of August 9th, but strangely it wasn't oppressively humid in St. Louis that day, which Wilson noted as he patrolled the area in a marked Chevy Tahoe. Midmorning, he was dispatched to attend to a three-month-old baby, whose parents had reported that the infant was having difficulty breathing. 911 calls in the area first go to the Ferguson Police Department, which then forwards the call to paramedics and dispatches a police car to arrive with the ambulance. "It is an anti-police area for sure," Wilson later said of Ferguson, while testifying in front of a grand jury about a month later on September 16th. "There's a lot of violence in that area, there's a lot of gun activity, drug activity. It is just not a very well-liked community. That community doesn't like the police … There are good people over there, there really are, but I mean there is an influx of gang activity in that area."</p>
+          <img src="http://stlcurator.com/wp-content/uploads/Michael-Brown-Memorial.jpg" alt="..." class="img-rounded">
+          <p>At 12:01 pm, Wilson first came in contact with two young black men walking down Canfield Drive. He didn't learn their names until the next day. One of the teenagers, 18-year-old Michael Brown, lived in Ferguson with his grandmother. Wilson's DNA would later be found on Brown's left palm. Brown's mother, Lesley McSpadden, had him when she was 16, but she was determined to get her son to graduate from high school and attend college. Brown had just graduated from Normandy High School that May, unlike 40% of his classmates, who had not.</p>
+        </br>
         </div>
       </div>
     </div>
